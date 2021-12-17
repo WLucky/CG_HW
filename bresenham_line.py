@@ -20,13 +20,26 @@ def bresenham(x1, y1, x2, y2):
     return xs, ys
 
 def bresenham_adopt(x1, y1, x2, y2):
+    y0 = None
+    if x1 > x2:
+        x1, x2 = x2, x1
+        y1, y2 = y2, y1
+
+    # 如果斜率为负数 则 进行水平方向对称 之后再反转
+    if y2 < y1:
+        y0 = y2
+        y2 = 2 * y1 - y2
+
     dx = x2 - x1
-    dy = y2 - y1
-    if(dy >= dx):
+    dy = y2 - y1        
+    if dy >= dx:
         #  m >= 1 swap
         ys, xs = bresenham(y1, x1, y2, x2)
     else:
         xs, ys = bresenham(x1, y1, x2, y2)
+
+    if y0 != None:
+        ys = [2 * y1 - y for y in ys]
 
     return xs, ys
 
