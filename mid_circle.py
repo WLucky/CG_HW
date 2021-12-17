@@ -1,12 +1,11 @@
 import matplotlib.pyplot as plt
-import pdb
 
 def mid_point_circle(r):
     xs = [0]
     ys = [r]
     p = 1 - r
     
-    while xs[-1] != ys[-1]:
+    while xs[-1] < ys[-1]:
         if p < 0:
             p = p + 2 * xs[-1] + 3
             ys.append(ys[-1])
