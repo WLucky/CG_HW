@@ -60,8 +60,8 @@ if __name__ == '__main__':
     plt.title('mid point circle')
     plt.xlabel("x")
     plt.ylabel("y")
-    plt.xticks(range(min(xs), max(xs) + 1))
-    plt.yticks(range(min(ys), max(ys) + 1))
+    # plt.xticks(range(min(xs), max(xs) + 1))
+    # plt.yticks(range(min(ys), max(ys) + 1))
     plt.grid(color='black',
         linestyle='--',
         linewidth=1,

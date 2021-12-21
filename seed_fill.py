@@ -43,8 +43,8 @@ if __name__ == '__main__':
     plt.title('Seed Fill')
     plt.xlabel("x")
     plt.ylabel("y")
-    plt.xticks(range(min(vertex_xs) - 1, max(vertex_xs) + 2))
-    plt.yticks(range(min(vertex_ys) - 1, max(vertex_ys) + 2))
+    # plt.xticks(range(min(vertex_xs) - 1, max(vertex_xs) + 2))
+    # plt.yticks(range(min(vertex_ys) - 1, max(vertex_ys) + 2))
     plt.grid(color='black',
         linestyle='--',
         linewidth=1,

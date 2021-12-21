@@ -20,14 +20,14 @@ def bresenham(x1, y1, x2, y2):
     return xs, ys
 
 def bresenham_adopt(x1, y1, x2, y2):
-    y0 = None
+    neg_k = False
     if x1 > x2:
         x1, x2 = x2, x1
         y1, y2 = y2, y1
 
     # 如果斜率为负数 则 进行水平方向对称 之后再反转
     if y2 < y1:
-        y0 = y2
+        neg_k = True
         y2 = 2 * y1 - y2
 
     dx = x2 - x1
@@ -38,7 +38,7 @@ def bresenham_adopt(x1, y1, x2, y2):
     else:
         xs, ys = bresenham(x1, y1, x2, y2)
 
-    if y0 != None:
+    if neg_k:
         ys = [2 * y1 - y for y in ys]
 
     return xs, ys
@@ -53,8 +53,8 @@ if __name__ == '__main__':
     plt.title('bresenham')
     plt.xlabel("x")
     plt.ylabel("y")
-    plt.xticks(range(x1, x2 + 1))
-    plt.yticks(range(y1, y2 + 1))
+    # plt.xticks(range(min(x1, x2), max(x1, x2) + 1))
+    # plt.yticks(range(min(y1, y2), max(y1, y2) + 1))
     plt.grid(color='black',
         linestyle='--',
         linewidth=1,

@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
 
-# suppose a <= b
 def mid_point_ellipse(a, b):
     xs = [0]
     ys = [b]
@@ -19,7 +18,7 @@ def mid_point_ellipse(a, b):
     
     # step2
     q = b**2 * (xs[-1] + 1/2)**2 + a**2 * (ys[-1] - 1)**2 - a**2 * b**2
-    while xs[-1] != a:
+    while ys[-1] != 0:
         if q < 0:
             q = q + 2 * b**2 * xs[-1] - 2 * a**2 * ys[-1] + 2 * b**2 + 3 * a**2
             xs.append(xs[-1] + 1)
@@ -36,10 +35,7 @@ def mid_point_ellipse_adopt(a, b):
     ellipse_xs = []
     ellipse_ys = []
 
-    if a > b:
-        ys, xs = mid_point_ellipse(b, a)
-    else:
-        xs, ys = mid_point_ellipse(a, b)
+    xs, ys = mid_point_ellipse(a, b)
 
     for x, y in zip(xs, ys):
         ellipse_xs.append(x)
@@ -67,8 +63,8 @@ if __name__ == '__main__':
     plt.title('mid point ellipse')
     plt.xlabel("x")
     plt.ylabel("y")
-    plt.xticks(range(min(xs), max(xs) + 1))
-    plt.yticks(range(min(ys), max(ys) + 1))
+    # plt.xticks(range(min(xs), max(xs) + 1))
+    # plt.yticks(range(min(ys), max(ys) + 1))
     plt.grid(color='black',
         linestyle='--',
         linewidth=1,
